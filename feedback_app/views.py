@@ -34,8 +34,8 @@ def loginpage(request):
         if user is not None:
             login(request, user)
             if user.is_staff:
-                return redirect('http://127.0.0.1:8000/analytics')
-            return redirect('http://127.0.0.1:8000/home')
+                return redirect('https://ra-feedback.herokuapp.com/analytics')
+            return redirect('https://ra-feedback.herokuapp.com/home')
 
         else:
             messages.info(request, 'Username or password is incorrect')
@@ -50,5 +50,5 @@ def analytics(request):
         return render(request, 'analytics.html', {'data': rows})
     else:
         messages.info(request, 'Only teachers can access this page')
-    return redirect('http://127.0.0.1:8000/login')
+    return redirect('https://ra-feedback.herokuapp.com/login')
     # return render(request, 'login1.html')
