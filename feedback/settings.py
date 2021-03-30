@@ -129,11 +129,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydb',
-        'USER': 'rituj',
-        'PASSWORD': 'rituj',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'dbvl7ea9bgq4kg',
+        'USER': 'snddiwduluaikg',
+        'PASSWORD': '9149dc5205f51f281f3b1331973c5ef54e3b7005d5d781d6ede5fa04459a678d',
+        'HOST': 'ec2-52-1-115-6.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
