@@ -6,19 +6,26 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from .models import Analytics
 from django.contrib.auth.decorators import login_required
+# from django.db.models.loading import get_model
 # Create your views here.
+from django.apps import apps
+
+
 def home(request):
     if request.method == "GET": 
         return render(request, 'home.html')
     else:
         nam = request.POST.get('username')
+        # age = request.POST.get('age')
         comp = request.POST.get('Competency')
         tea = request.POST.get('TeachingSkills')
         pun = request.POST.get('Punctuality')
         pra = request.POST.get('PracticalKnowledge')
         appr = request.POST.get('Approachability')
         control = request.POST.get('ClassControl')
-        obj = Analytics( name= nam, competen = comp,teach = tea,punc = pun,prac=pra,approach = appr,classcontrol = control)
+        # s=AppConfig.get_model('Analytics', require_ready=True)
+        s = apps.get_model('feedback_app', 'Analytics')
+        obj = s(name= nam, competen = comp,teach = tea,punc = pun,prac=pra,approach = appr,classcontrol = control)
         obj.save()
         # print(nam,comp,tea,pun,pra,appr,control)
         messages.success(request, 'Feedback submission successful')
